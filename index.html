@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <style>
+            body,html {
+                width:100%;
+                height:100%;
+                overflow:hidden;
+            }
+
+        </style>
+        <!-- the line below is required for access to the appMobi JS library -->
+<!--
+        <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
+
+        <script type="text/javascript" language="javascript">
+            // This event handler is fired once the AppMobi libraries are ready
+            function onDeviceReady() {
+                //use AppMobi viewport to handle device resolution differences if you want
+                //AppMobi.display.useViewport(768,1024);
+
+                //hide splash screen now that our app is ready to run
+                AppMobi.device.hideSplashScreen();
+            }
+
+            //initial event handler to detect when appMobi is ready to roll
+            document.addEventListener("appMobi.device.ready",onDeviceReady,false);
+        </script>
+
+-->
+
+    </head>
+    <body><div id="info">
+    **notes: each chord is in a span.<br>
+    each word is in a span.<br>
+    each line is a div<br>
+    lines are draggable up and down<br>
+    chords and words are draggable along line.<br>
+    two finger drag to duplicate line<br>
+    Each song has metadata ind db.<br>
+    data includes: name, artist, key, tempo, scroll speed, style.<br>
+    Midi backing track ??<br>
+    Mp3 backing track ??<br>
+
+
+
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+</div>
+        <!-- Add your site or application content here -->
+        <script type="text/javascript">
+            // Check for the various File API support.
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                // Great success! All the File APIs are supported.
+            } else {
+                alert('The File APIs are not fully supported in this browser.');
+            }
+        </script>
+        <!-- script type="text/javascript">
+            // Check for the various File API support.
+            if (window.FileSaver && window.BlobBuilder && window.FileWriter ) {
+                // Great success! All the File APIs are supported.
+            } else {
+                alert('The FileWriter APIs are not fully supported in this browser.');
+            }
+        </script -->
+    <script type="text/javascript">
+        $(){
+        $('#app').click( function() {
+        var manifestUrl = "/singalong.webapp";
+        var request = window.navigator.mozApps.install(manifestUrl);
+        request.onsuccess = function () {
+            // Save the App object that is returned
+            var appRecord = this.result;
+            alert('Installation successful!');
+        };
+        request.onerror = function () {
+            // Display the error information from the DOMError object
+            alert('Install failed, error: ' + this.error.name);
+        };
+        });
+        }
+    </script>
+    <div id="main">
+        <p>HTML5 Sing Along</p>
+        Load a file of Chordchart and scroll it to perform with.<br>
+        This is presuming of course that the chart is longer than the screen.<br>
+        this can be install as an <a href='#' id="app">app</a> or used <a href="singalong.html">online</a>
+        </div>
+    <script type="text/javascript> src="js/main.js"></script>
+    </body>
+</html>

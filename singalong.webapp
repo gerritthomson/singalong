@@ -1,0 +1,18 @@
+{
+  "name": "Sing Along",
+  "description": "Sing along with the words and backings track",
+  "launch_path": "/",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Gerrit Thomson",
+    "url": "http://gerrit.com.au/singalong/"
+  },
+  "default_locale": "en"
+  "permissions": {
+    "device-storage:sdcard":"readwrite",
+    "storage"
+  }
+
+}
